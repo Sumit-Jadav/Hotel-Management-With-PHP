@@ -4,32 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TJ Hotel</title>
+    <!-- ! Bootstrap Cdn -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <!-- ! Google Font   -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <!-- ! Bootstrap icon cdn -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
-    <style>
-      * {
-        font-family: "Poppins", sans-serif;
-      }
-      .h-font {
-        font-family: "Merienda", cursive;
-      }
-    </style>
+    <!-- ! Slider js cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <!-- ! My stylesheet -->
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body>
+  <body class="bg-light">
+    <!-- ! Header Section -->
     <header>
       <nav
         class="navbar navbar-expand-lg bg-body-tertiary bg-white px-lg-3 py-lg-2 shadow-sm sticky-top"
@@ -186,7 +189,7 @@
                 </span>
                 <div class="container-fluid">
                   <div class="row">
-                    <div class="col-md-6 ps-0">
+                    <div class="col-md-6 ps-0 mb-3">
                       <label for="InputEmail" class="form-label">Name</label>
                       <input
                         type="text"
@@ -194,7 +197,7 @@
                         id="InputEmail"
                       />
                     </div>
-                    <div class="col-md-6 p-0">
+                    <div class="col-md-6 p-0 mb-3">
                       <label for="InputEmail" class="form-label">Email</label>
                       <input
                         type="email"
@@ -202,51 +205,200 @@
                         id="InputEmail"
                       />
                     </div>
+                    <div class="col-md-6 ps-0 mb-3">
+                      <label for="InputPhone" class="form-label"
+                        >Phone Number</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control shadow-none"
+                        id="InputPhone"
+                      />
+                    </div>
+                    <div class="col-md-6 p-0 mb-3">
+                      <label for="InputPhoto" class="form-label">Photo</label>
+                      <input
+                        type="file"
+                        class="form-control shadow-none"
+                        id="InputPhoto"
+                      />
+                    </div>
+                    <div class="col-md-12 p-0 mb-3">
+                      <label for="InputAddress" class="form-label"
+                        >Address</label
+                      >
+                      <textarea
+                        class="form-control shadow-none"
+                        id="InputAddress"
+                        rows="1"
+                      ></textarea>
+                    </div>
+                    <div class="col-md-6 ps-0 mb-3">
+                      <label for="InputPincode" class="form-label"
+                        >Pin Code</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control shadow-none"
+                        id="InputPincode"
+                      />
+                    </div>
+                    <div class="col-md-6 p-0 mb-3">
+                      <label for="InputDOB" class="form-label"
+                        >Date of Birth</label
+                      >
+                      <input
+                        type="date"
+                        class="form-control shadow-none"
+                        id="InputDOB"
+                      />
+                    </div>
+                    <div class="col-md-6 ps-0 mb-3">
+                      <label for="InputPassword" class="form-label"
+                        >Password</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control shadow-none"
+                        id="InputPassword"
+                      />
+                    </div>
+                    <div class="col-md-6 p-0 mb-3">
+                      <label for="InputConformPassword" class="form-label"
+                        >Conform Password</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control shadow-none"
+                        id="InputConformPassword"
+                      />
+                    </div>
                   </div>
                 </div>
-                <!-- <div class="mb-3">
-                  <label for="InputEmail" class="form-label"
-                    >Email address</label
-                  >
-                  <input
-                    type="email"
-                    class="form-control shadow-none"
-                    id="InputEmail"
-                  />
-                  <div id="emailHelp" class="form-text">
-                    We'll never share your email with anyone else.
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <label for="InputPassword" class="form-label">Password</label>
-                  <input
-                    type="password"
-                    class="form-control shadow-none"
-                    id="InputPassword"
-                  />
-                </div>
-                <div
-                  class="d-flex align-items-center justify-content-between mb-2"
-                >
-                  <button type="submit" class="btn btn-dark shadow-none">
-                    LOGIN
+                <div class="text-center">
+                  <button type="submit" class="btn btn-dark shadow-none my-1">
+                    Register
                   </button>
-                  <a
-                    href="javascript : void(0)"
-                    class="text-secondary text-decoration-none"
-                    >Forgot Password</a
-                  >
-                </div> -->
+                </div>
               </div>
             </form>
           </div>
         </div>
       </div>
     </header>
+    <!-- ! Header section end  -->
+
+    <main>
+      <!-- ! Start of slider -->
+      <div class="container-fluid px-lg-4 mt-4">
+        <div class="swiper swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="images/carousel/1.png" alt="Image-1" />
+            </div>
+            <div class="swiper-slide">
+              <img src="images/carousel/2.png" alt="Image-2" />
+            </div>
+            <div class="swiper-slide">
+              <img src="images/carousel/3.png" alt="Image-3" />
+            </div>
+            <div class="swiper-slide">
+              <img src="images/carousel/4.png" alt="Image-4" />
+            </div>
+            <div class="swiper-slide">
+              <img src="images/carousel/5.png" alt="Image-5" />
+            </div>
+            <div class="swiper-slide">
+              <img src="images/carousel/6.png" alt="Image-6" />
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <!-- <div class="swiper-pagination"></div> -->
+        </div>
+      </div>
+      <!-- ! End of slider section -->
+
+      <!-- ! Check booking availabilty  -->
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 bg-white shadow p-4 rounded">
+            <h5>Check Booking Availability</h5>
+            <form action="">
+              <div class="row">
+                <div class="col-lg-3">
+                  <label
+                    for="CheckInDate"
+                    class="form-label"
+                    style="font-weight: 500"
+                    >Check-in</label
+                  >
+                  <input
+                    type="date"
+                    id="CheckInDate"
+                    class="form-control shadow-none"
+                  />
+                </div>
+                <div class="col-lg-3">
+                  <label
+                    for="checkOutDate"
+                    class="form-label"
+                    style="font-weight: 500"
+                    >Check-out</label
+                  >
+                  <input
+                    type="date"
+                    id="checkOutDate"
+                    class="form-control shadow-none"
+                  />
+                </div>
+                <div class="col-lg-2">
+                  <label for="adult" class="form-label" style="font-weight: 500"
+                    >Adult</label
+                  >
+                  <select class="form-select shadow-none" id="adult">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+                <div class="col-lg-2">
+                  <label
+                    for="children"
+                    class="form-label"
+                    style="font-weight: 500"
+                    >Children</label
+                  >
+                  <select class="form-select shadow-none" id="children">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+                <div class="col-lg-2">
+                  <button type="submit" class="btn text-white shadow-none">
+                    Check
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- ! End Check booking availabilty  -->
+    </main>
+    <!-- ! Bootstrap javascript -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <!-- ! Slider js Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- ! Swiper.js link -->
+    <script src="./js/swiper.js"></script>
   </body>
 </html>
