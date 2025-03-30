@@ -36,5 +36,24 @@ input[type="number"] {
   height: 100%;
   object-fit: cover;
 }
-@media (width < 700px) {
+
+/* ! Custome button in check availability section */
+.custome-button {
+  background-color: #2ec1ac;
+}
+.custome-button:hover {
+  background-color: #279e8c;
+}
+
+.availibility-form {
+  margin-top: -50px;
+  position: relative;
+  z-index: 2;
+}
+
+@media screen and (width <= 575px) {
+  .availibility-form {
+    margin-top: 20px;
+    padding: 0 25px;
+  }
 }
