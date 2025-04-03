@@ -652,7 +652,272 @@
         </div>
       </section>
       <!-- ! End of Room Cards -->
+      <!-- ! Our Facilities -->
+      <section>
+        <h2 class="mt-5 pt-4 mb-4 text-center h-font fw-bold">
+          OUR FACILITIES
+        </h2>
+        <div class="container">
+          <div class="row px-lg-0 justify-content-evenly px-md-0 px-5">
+            <div
+              class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3"
+            >
+              <img
+                src="images/facilities/IMG_43553.svg"
+                alt="Facilities"
+                width="80px"
+              />
+              <h5 class="mt-3">Wi-Fi</h5>
+            </div>
+            <div
+              class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3"
+            >
+              <img
+                src="images/facilities/IMG_43553.svg"
+                alt="Facilities"
+                width="80px"
+              />
+              <h5 class="mt-3">Wi-Fi</h5>
+            </div>
+            <div
+              class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3"
+            >
+              <img
+                src="images/facilities/IMG_43553.svg"
+                alt="Facilities"
+                width="80px"
+              />
+              <h5 class="mt-3">Wi-Fi</h5>
+            </div>
+            <div
+              class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3"
+            >
+              <img
+                src="images/facilities/IMG_43553.svg"
+                alt="Facilities"
+                width="80px"
+              />
+              <h5 class="mt-3">Wi-Fi</h5>
+            </div>
+            <div
+              class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3"
+            >
+              <img
+                src="images/facilities/IMG_43553.svg"
+                alt="Facilities"
+                width="80px"
+              />
+              <h5 class="mt-3">Wi-Fi</h5>
+            </div>
+            <div class="col-lg-12 text-center mt-5">
+              <a
+                href="#"
+                class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none"
+                >More Facilities >>>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ! End of Our facilities -->
+
+      <!-- ! Testimonials -->
+      <section>
+        <h2 class="mt-5 pt-4 mb-4 text-center h-font fw-bold">Testimonial</h2>
+        <div class="container">
+          <div class="swiper swiper-testimonial">
+            <div class="swiper-wrapper mb-5">
+              <div class="swiper-slide bg-white p-4" style="display: block">
+                <div class="profile d-flex align-items-center mb-3">
+                  <img
+                    src="./images/facilities/IMG_27079.svg"
+                    alt=""
+                    style="width: 30px"
+                  />
+                  <h6 class="m-0 ms-2">Randome User1</h6>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et,
+                  beatae?Lorem ipsum, dolor sit amet consectetur adipisicing
+                  elit. Esse, ut.
+                </p>
+                <div class="rating">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                </div>
+              </div>
+              <div class="swiper-slide bg-white p-4" style="display: block">
+                <div class="profile d-flex align-items-center mb-3">
+                  <img
+                    src="./images/facilities/IMG_27079.svg"
+                    alt=""
+                    style="width: 30px"
+                  />
+                  <h6 class="m-0 ms-2">Randome User1</h6>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et,
+                  beatae?Lorem ipsum, dolor sit amet consectetur adipisicing
+                  elit. Esse, ut.
+                </p>
+                <div class="rating">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                </div>
+              </div>
+              <div class="swiper-slide bg-white p-4" style="display: block">
+                <div class="profile d-flex align-items-center mb-3">
+                  <img
+                    src="./images/facilities/IMG_27079.svg"
+                    alt=""
+                    style="width: 30px"
+                  />
+                  <h6 class="m-0 ms-2">Randome User1</h6>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et,
+                  beatae?Lorem ipsum, dolor sit amet consectetur adipisicing
+                  elit. Esse, ut.
+                </p>
+                <div class="rating">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <i class="bi bi-star-fill text-warning"></i>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <div class="col-lg-12 text-center mt-5">
+            <a
+              href="#"
+              class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none"
+              >know More &gt;&gt;&gt;
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ! Reach Us  -->
+      <section>
+        <h2 class="mt-5 pt-4 mb-4 text-center h-font fw-bold">REACH US</h2>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-8 p-4 mb-lg-0 mb-3 bg-white rounded">
+              <iframe
+                class="w-100 rounded"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59286.189511497665!2d72.12112333121826!3d21.765284248894506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395f5081abb84e2f%3A0xf676d64c6e13716c!2sBhavnagar%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1743500016069!5m2!1sen!2sin"
+                height="450"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <div class="col-lg-4 col-md-4 bg-white p-5">
+              <div class="bg-white p-4 mb-4 rounded">
+                <h5>Call Us</h5>
+                <a
+                  href="tel:+919879034393"
+                  class="d-inline-block mb-2 text-decoration-none text-dark"
+                  ><i class="bi bi-telephone-forward-fill"></i> +919879034393</a
+                >
+                <br />
+                <a
+                  href="tel:+919879034393"
+                  class="d-inline-block mb-2 text-decoration-none text-dark"
+                  ><i class="bi bi-telephone-forward-fill"></i> +919879034393</a
+                >
+              </div>
+              <div class="bg-white p-4 mb-4 rounded">
+                <h5>Follow Us</h5>
+                <a href="#" class="d-inline-block mb-3"
+                  ><span class="badge bg-light text-dark fs-6 p-2"
+                    ><i class="bi bi-twitter-x me-1"></i> Twitter</span
+                  >
+                </a>
+                <br />
+                <a href="#" class="d-inline-block mb-3"
+                  ><span class="badge bg-light text-dark fs-6 p-2"
+                    ><i class="bi bi-facebook me-1"></i> Facebook</span
+                  >
+                </a>
+                <br />
+                <a href="#" class="d-inline-block mb-3"
+                  ><span class="badge bg-light text-dark fs-6 p-2"
+                    ><i class="bi bi-instagram me-1"></i> Instagram</span
+                  >
+                </a>
+                <br />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer>
+      <div class="container-fluid bg-white mt-5">
+        <div class="row">
+          <div class="col-lg-4 p-4">
+            <h3 class="h-font fw-bold fs-3 mb-2">TJ HOTEL</h3>
+            <p>&copy;All Rights Reserved</p>
+          </div>
+          <div class="col-lg-4 p-4">
+            <h5 class="mb-3">Links</h5>
+            <a
+              href="#"
+              class="d-inline-block text-decoration-none mb-2 text-dark"
+              >Home</a
+            ><br />
+            <a
+              href="#"
+              class="d-inline-block text-decoration-none mb-2 text-dark"
+              >Rooms</a
+            ><br />
+            <a
+              href="#"
+              class="d-inline-block text-decoration-none mb-2 text-dark"
+              >Facilities</a
+            ><br />
+            <a
+              href="#"
+              class="d-inline-block text-decoration-none mb-2 text-dark"
+              >Contact Us</a
+            ><br />
+            <a
+              href="#"
+              class="d-inline-block text-decoration-none mb-2 text-dark"
+              >About</a
+            ><br />
+          </div>
+          <div class="col-lg-4 p-4">
+            <h5>Follow Us</h5>
+            <a
+              href="#"
+              class="d-inline-block mb-2 text-dark text-decoration-none"
+              ><i class="bi bi-twitter-x me-1"></i> Twitter
+            </a>
+            <br />
+            <a
+              href="#"
+              class="d-inline-block mb-2 text-dark text-decoration-none"
+              ><i class="bi bi-facebook me-1"></i> Facebook
+            </a>
+            <br />
+            <a
+              href="#"
+              class="d-inline-block mb-2 text-dark text-decoration-none"
+              ><i class="bi bi-instagram me-1"></i> Instagram
+            </a>
+            <br />
+          </div>
+        </div>
+      </div>
+    </footer>
     <!-- ! Bootstrap javascript -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -663,5 +928,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- ! Swiper.js link -->
     <script src="./js/swiper.js"></script>
+    <!-- ! Testimonial Swiper -->
+    <script src="./js/swiper-testimonial.js"></script>
   </body>
 </html>
