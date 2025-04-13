@@ -1,0 +1,80 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --teal: #2ec1ac;
+  --teal-hover: #279e8c;
+}
+
+.h-font {
+  font-family: "Merienda", cursive;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide spin buttons in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* ! Swiper js  */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ! Custome button in check availability section */
+.custome-button {
+  background-color: var(--teal);
+  border-color: var(--teal);
+}
+.custome-button:hover {
+  background-color: var(--teal-hover);
+  border: 1px solid var(--teal-hover);
+}
+
+.availibility-form {
+  margin-top: -50px;
+  position: relative;
+  z-index: 2;
+}
+
+@media screen and (width <= 575px) {
+  .availibility-form {
+    margin-top: 20px;
+    padding: 0 25px;
+  }
+}
+
+/* ! Facilities page */
+.h-line {
+  width: 150px;
+  margin: 0 auto;
+  height: 1.7px;
+}
+
+.custome-alert {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+}
