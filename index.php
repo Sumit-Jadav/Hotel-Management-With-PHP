@@ -577,15 +577,6 @@
       </section>
 
       <!-- ! Reach Us  -->
-
-      <?php
-        $contact_q = "SELECT * FROM `contact_details` WHERE `sr_no` = ?";
-        $values = [1];
-        $contact_r = mysqli_fetch_assoc(select($contact_q,$values,"i"));
-        
-      ?>
-
-
       <section>
         <h2 class="mt-5 pt-4 mb-4 text-center h-font fw-bold">REACH US</h2>
         <div class="container">
@@ -637,13 +628,13 @@
                 
                 ?>
                 
-                <a href="<?php echo $contact_r["fb"]?>" class="d-inline-block mb-3"
+                <a href="<?php echo $contact_r["fb"]?>" target="_blank" class="d-inline-block mb-3"
                   ><span class="badge bg-light text-dark fs-6 p-2"
                     ><i class="bi bi-facebook me-1"></i> Facebook</span
                   >
                 </a>
                 <br />
-                <a href="<?php echo $contact_r["insta"]?>" class="d-inline-block mb-3"
+                <a href="<?php echo $contact_r["insta"]?>" target="_blank" class="d-inline-block mb-3"
                   ><span class="badge bg-light text-dark fs-6 p-2"
                     ><i class="bi bi-instagram me-1"></i> Instagram</span
                   >

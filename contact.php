@@ -25,12 +25,7 @@
         </p>
       </div>
 
-      <?php
-        $contact_q = "SELECT * FROM `contact_details` WHERE `sr_no` = ?";
-        $values = [1];
-        $contact_r = mysqli_fetch_assoc(select($contact_q,$values,"i"));
-        
-      ?>
+      
 
       <div class="container">
         <div class="row">
@@ -82,7 +77,7 @@
               <?php
                 if ($contact_r["tw"] != "") {
                   echo <<< data
-                    <a href="$contact_r[tw]" class="d-inline-block text-dark fs-5 me-2"
+                    <a href="$contact_r[tw]" target="_blank" class="d-inline-block text-dark fs-5 me-2"
                       ><i class="bi bi-twitter-x me-1"></i>
                     </a>
                   data;
@@ -91,11 +86,11 @@
               ?>
 
 
-              <a href="<?php echo $contact_r['fb'] ?>" class="d-inline-block text-dark fs-5 me-2"
+              <a href="<?php echo $contact_r['fb'] ?>" target="_blank" class="d-inline-block text-dark fs-5 me-2"
                 ><i class="bi bi-facebook me-1"></i>
               </a>
 
-              <a href="<?php echo $contact_r['insta'] ?>" class="d-inline-block text-dark fs-5 me-2"
+              <a href="<?php echo $contact_r['insta'] ?>" target="_blank" class="d-inline-block text-dark fs-5 me-2"
                 ><i class="bi bi-instagram me-1"></i>
               </a>
             </div>
