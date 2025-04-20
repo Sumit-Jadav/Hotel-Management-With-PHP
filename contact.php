@@ -24,54 +24,78 @@
           Tempore quisquam architecto voluptate aliquid perspiciatis!
         </p>
       </div>
+
+      <?php
+        $contact_q = "SELECT * FROM `contact_details` WHERE `sr_no` = ?";
+        $values = [1];
+        $contact_r = mysqli_fetch_assoc(select($contact_q,$values,"i"));
+        
+      ?>
+
       <div class="container">
         <div class="row">
           <div class="col-lg-6 col-md-6 mb-5 px-4">
             <div class="bg-white rounded shaow p-4">
               <iframe
                 class="w-100 rounded mb-4"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59286.189511497665!2d72.12112333121826!3d21.765284248894506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395f5081abb84e2f%3A0xf676d64c6e13716c!2sBhavnagar%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1743500016069!5m2!1sen!2sin"
+                src="<?php echo $contact_r['iframe'] ?>"
                 height="450"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
               <h5>Address</h5>
               <a
-                href="https://maps.app.goo.gl/rpsPGPoZJ3dT7KBq7"
+                href="<?php echo $contact_r['gmap'] ?>"
                 target="_blank"
                 class="d-inline-block text-decoration-none text-dark mb-2"
               >
                 <i class="bi bi-geo-alt-fill"></i>
-                XYZ,Bhavnagar,Gujarat</a
+                <?php echo $contact_r['address'] ?></a
               >
               <h5 class="mt-4">Call Us</h5>
               <a
                 href="tel:+919879034393"
                 class="d-inline-block mb-2 text-decoration-none text-dark"
-                ><i class="bi bi-telephone-forward-fill"></i> +919879034393</a
+                ><i class="bi bi-telephone-forward-fill"></i> +<?php echo $contact_r['pn1'] ?></a
               >
               <br />
-              <a
-                href="tel:+919879034393"
-                class="d-inline-block mb-2 text-decoration-none text-dark"
-                ><i class="bi bi-telephone-forward-fill"></i> +919879034393</a
-              >
+              <?php
+                if ($contact_r["pn2"] != "") {
+                  echo <<<data
+                    <a
+                    href="tel:+$contact_r[pn2]"
+                    class="d-inline-block mb-2 text-decoration-none text-dark"
+                    ><i class="bi bi-telephone-forward-fill"></i> +$contact_r[pn2]</a
+                    > 
+                  data;
+                }
+
+              ?>
+              
               <h4 class="mt-4">E-Mail</h4>
               <a
-                href="mailto:jadavsumit777@gmail.com"
+                href="mailto:<?php echo $contact_r['email'] ?>"
                 class="d-inline-block mb-2 text-decoration-none text-dark"
-                ><i class="bi bi-envelope"></i> jadavsumit777@gmail.com</a
+                ><i class="bi bi-envelope me-2"></i><?php echo $contact_r['email']; ?></a
               >
               <h5 class="mt-4">Follow Us</h5>
-              <a href="#" class="d-inline-block text-dark fs-5 me-2"
-                ><i class="bi bi-twitter-x me-1"></i>
-              </a>
+              <?php
+                if ($contact_r["tw"] != "") {
+                  echo <<< data
+                    <a href="$contact_r[tw]" class="d-inline-block text-dark fs-5 me-2"
+                      ><i class="bi bi-twitter-x me-1"></i>
+                    </a>
+                  data;
+                }
+                
+              ?>
 
-              <a href="#" class="d-inline-block text-dark fs-5 me-2"
+
+              <a href="<?php echo $contact_r['fb'] ?>" class="d-inline-block text-dark fs-5 me-2"
                 ><i class="bi bi-facebook me-1"></i>
               </a>
 
-              <a href="#" class="d-inline-block text-dark fs-5 me-2"
+              <a href="<?php echo $contact_r['insta'] ?>" class="d-inline-block text-dark fs-5 me-2"
                 ><i class="bi bi-instagram me-1"></i>
               </a>
             </div>
