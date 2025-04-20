@@ -428,6 +428,7 @@
                   <div class="modal-footer">
                     <button
                       type="button"
+                      onclick="member_name.value='',member_picture.value=''"
                       class="btn text-secondary shadow-none"
                       data-bs-dismiss="modal"
                     >
@@ -647,23 +648,56 @@
       xhr.open("POST", "ajax/settings_crud.php", true);
 
       xhr.onload = function () {
-        // let myModal = document.getElementById("general-s");
-        // let modal = bootstrap.Modal.getInstance(myModal);
-        // modal.hide();
-        // if (this.responseText == 1) {
-        //   alert("success", "Changes Saved!!");
-        //   get_general();
-        // } else {
-        //   alert("danger", "No Changes Made!!");
-        // }
-        // console.log(this.responseText);
+        let myModal = document.getElementById("team-s");
+        let modal = bootstrap.Modal.getInstance(myModal);
+        modal.hide();
+        if (this.responseText == "inv_img") {
+          alert("danger", "Invalid Extension!!");
+          get_general();
+        } else if (this.responseText == "inv_size") {
+          alert("danger", "Size should be less than 2MB!!");
+        } else if (this.responseText == "upd_faildes") {
+          alert("danger", "Image Upload Failed");
+        } else {
+          alert("success", "New Member Added");
+          member_name.value = "";
+          member_picture.value = "";
+          get_members();
+        }
+
+        console.log(this.responseText);
       };
       xhr.send(data);
     }
 
+    function get_members() {
+      let xhr = new XMLHttpRequest();
+      xhr.open("POST", "ajax/settings_crud.php", true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.onload = function () {
+        document.getElementById("team-data").innerHTML = this.responseText;
+      };
+      xhr.send("get_members");
+    }
+
+    function rem_member($val) {
+      let xhr = new XMLHttpRequest();
+      xhr.open("POST", "ajax/settings_crud.php", true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.onload = function () {
+        if (this.responseText == 1) {
+          alert("success", "Member Remove");
+          get_members();
+        } else {
+          alert("danger", "Server Down");
+        }
+      };
+      xhr.send("rem_member=" + $val);
+    }
     window.onload = function () {
       get_general();
       get_contacts();
+      get_members();
     };
   </script>
   <?php require("inc/scripts.php");?>
