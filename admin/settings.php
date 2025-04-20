@@ -251,7 +251,7 @@
                                 ><i class="bi bi-telephone-fill"></i
                               ></span>
                               <input
-                                type="text"
+                                type="number"
                                 name="pn1"
                                 id="pn1_inp"
                                 class="form-control shadow-nonde"
@@ -263,7 +263,7 @@
                                 <i class="bi bi-telephone-fill"></i>
                               </span>
                               <input
-                                type="text"
+                                type="number"
                                 class="form-control"
                                 name="pn2"
                                 id="pn2_inp"
