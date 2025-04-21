@@ -16,7 +16,7 @@
     <div class="container-fluid" id="main-content">
       <div class="row">
         <div class="col-lg-10 ms-auto p-4 overflow-hidden">
-          <h3 class="mb-4">Settings</h3>
+          <h3 class="mb-4">SETTINGS</h3>
           <!-- General settings sections -->
           <div class="card border-0 shadow mb-4">
             <div class="card-body">
