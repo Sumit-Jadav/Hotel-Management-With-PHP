@@ -11,7 +11,7 @@
     define("ABOUT_FOLDER","about/");
     define("CAROUSEL_FOLDER","carousel/");
     function alert($type,$message){
-        $bs_class = ($type == "sucssss")?"alert-success":"alert-danger";
+        $bs_class = ($type == "success")?"alert-success":"alert-danger";
         echo <<<alert
                 <div class="alert $bs_class custome-alert alert-dismissible fade show" role="alert">
                     <strong class="me-3">$message</strong>
