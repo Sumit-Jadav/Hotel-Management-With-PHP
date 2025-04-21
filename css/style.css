@@ -72,3 +72,9 @@ input[type="number"] {
   margin: 0 auto;
   height: 1.7px;
 }
+
+.custome-alert {
+  position: fixed;
+  top: 80px;
+  right: 25px;
+}
