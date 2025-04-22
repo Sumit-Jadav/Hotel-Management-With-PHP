@@ -15,6 +15,11 @@
       </div>
     `
     document.body.append(element);
+    setTimeout(remAlert,2000);
+  }
+
+  function remAlert() {
+    document.getElementsByClassName("alert")[0].remove();
   }
 </script>
 
