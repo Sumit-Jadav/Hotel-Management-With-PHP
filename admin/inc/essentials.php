@@ -4,12 +4,16 @@
     define("SITE_URL","http://127.0.0.1/HB/");
     define("ABOUT_IMG_PATH",SITE_URL."images/about/");
     define("CAROUSEL_IMG_PATH",SITE_URL."images/carousel/");
+    define("FACILITIES_IMG_PATH",SITE_URL."images/facilities/");
+
 
     // For Backend picture upload
 
     define("UPLOAD_IMAGE_PATH",$_SERVER['DOCUMENT_ROOT']."/HB/images/");
     define("ABOUT_FOLDER","about/");
     define("CAROUSEL_FOLDER","carousel/");
+    define("FACILITIES_FOLDER","facilities/");
+
     function alert($type,$message){
         $bs_class = ($type == "success")?"alert-success":"alert-danger";
         echo <<<alert
@@ -62,6 +66,30 @@
         }
         else{
             return false;
+        }
+    }
+    
+
+    function uploadSVGImage($image,$folder){
+        $valid = ["image/svg+xml"];
+        $img_mime = $image["type"];
+        if(!in_array($img_mime,$valid)){
+            return "inv_img";
+        }
+        else if (($image["size"]/(1024*1024)) > 1) {
+            return "inv_size";  //Invalid size
+        }
+        else{
+            $ext = pathinfo($image["name"],PATHINFO_EXTENSION);  // will return extension without dot
+            $rname = "IMG_".random_int(11111,99999).".$ext";
+            $img_path = UPLOAD_IMAGE_PATH.$folder.$rname;
+            if(move_uploaded_file($image["tmp_name"],$img_path)){
+                return $rname;
+            }else{
+                return "upd_failed";
+            }
+
+
         }
     }
 ?>
