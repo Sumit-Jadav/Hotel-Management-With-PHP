@@ -56,10 +56,7 @@
                 </div>
               data;
             }
-          
           ?>
-          
-         
         </div>
       </div>
     </main>
