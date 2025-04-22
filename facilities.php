@@ -26,9 +26,7 @@
         <h2 class="fw-bold h-font text-center">OUR FACILITIES</h2>
         <div class="h-line bg-dark"></div>
         <p class="text-center mt-3">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque fugiat
-          enim culpa expedita nam. <br />
-          Tempore quisquam architecto voluptate aliquid perspiciatis!
+        At our hotel, we prioritize your comfort, safety, and satisfaction. From air-conditioned rooms and air purifiers to fire safety systems, massage services, entertainment, and Wi-Fi, every facility is designed to make your stay enjoyable, relaxing, and worry-free.
         </p>
       </div>
       <div class="container">
