@@ -5,7 +5,7 @@
 ></script>
 
 <script>
-  function alert(type,message){
+  function alert(type,message,position='body'){
     let bs_class = (type == 'success') ? 'alert-success' : 'alert-danger';
     let element = document.createElement('div')
     element.innerHTML = `
@@ -14,7 +14,15 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     `
-    document.body.append(element);
+    if (position == 'body') {
+      
+      document.body.append(element);
+      element.classList.add("custome-alert");
+    }
+    else{
+      document.getElementById(position).appendChild(element);
+      
+    }
     setTimeout(remAlert,2000);
   }
 
