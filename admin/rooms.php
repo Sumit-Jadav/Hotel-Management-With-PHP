@@ -81,7 +81,7 @@
                   data-bs-toggle="modal"
                   data-bs-target="#add-room"
                 >
-                  <i class="bi bi-plus-square">Add</i>
+                  <i class="bi bi-plus-square me-1"></i>Add
                 </button>
               </div>
 
@@ -407,12 +407,66 @@
         </div>
     </div>
 
-    
+    <!-- Manage Room images modal -->
+
+    <div class="modal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" id="room-images">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Room Name</h5>
+                <button
+                    type="reset"
+                    class="btn-close shadow-none"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+                
+            </div>
+            <div class="modal-body">
+                <div id="image-alert"></div>
+                <div class="border-bottom border-3 pb-3 mb-3">
+                    <form action="" id="add_image_form">
+                    <label for="member_picture_inp" class="form-label fw-bold"
+                            >Add Image</label
+                          >
+                          <input
+                            type="file"
+                            name="image"
+                            class="form-control shadow-none mb-3"
+                            
+                            accept=".jpg,.png,.webp,.jpeg"
+                            required
+                          />
+                          <button type="submit" class="btn custome-button text-white shadow-none">ADD</button>
+                          <input type="hidden" name="room_id">
+                    </form>
+                </div>
+                <div
+                class="table-responsive-lg"
+                style="height: 350px; overflow-y: scroll"
+                >
+                    <table class="table table-hover border text-center">
+                    <thead class="sticky-top z-0">
+                        <tr class="bg-dark text-light sticky-top">
+                            <th scope="col" width="60%">Image</th>
+                            <th scope="col">Thumb</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="room-image-data"></tbody>
+                    </table>
+                </div>
+            </div>
+           
+            </div>
+        </div>
+    </div>
     
   </body>
   <script>
     let add_room_form = document.getElementById("add_room_form");
     let edit_room_form = document.getElementById("edit_room_form");
+    let add_image_form = document.getElementById("add_image_form");
     add_room_form.addEventListener("submit", function(e){
         e.preventDefault();
         add_room();
@@ -420,6 +474,10 @@
     edit_room_form.addEventListener("submit",function(e){
         e.preventDefault();
         submit_edit_room();
+    });
+    add_image_form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        add_image();      
     })
 
     function add_room() {
@@ -571,6 +629,45 @@
             console.log(this.responseText);
         };
         xhr.send(data);
+    }
+
+    function add_image(){
+        let data = new FormData();
+
+        //  .files[0] will select only first file
+        data.append("image", add_image_form.elements["image"].files[0]);
+        data.append("room_id", add_image_form.elements["room_id"].value);
+        data.append("add_image", "");
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "ajax/rooms_crud.php", true);
+
+        xhr.onload = function () {
+            if (this.responseText == "inv_img") {
+            alert("danger", "Invalid Extension!!",'image-alert');
+            get_general();
+            } else if (this.responseText == "inv_size") {
+            alert("danger", "Size should be less than 2MB!!",'image-alert');
+            } else if (this.responseText == "upd_failed") {
+            alert("danger", "Image Upload Failed",'image-alert');
+            } else {
+            alert("success", "New Image Added",'image-alert');
+
+            add_image_form.reset();
+            // get_carousel();
+            }
+
+            console.log(this.responseText);
+        };
+        xhr.send(data);
+    }
+
+    function room_images(id,rname){
+        add_image_form.elements["room_id"].value = id;
+        console.log(add_image_form.elements["room_id"].value);
+        
+        let modalTitle = document.querySelector("#room-images .modal-title");
+        modalTitle.textContent = rname;
+        console.log(modalTitle.textContent);
     }
 
     window.onload = function () {
