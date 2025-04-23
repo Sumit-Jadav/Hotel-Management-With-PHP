@@ -87,6 +87,16 @@
                     <i class='bi bi-pencil-square'></i>
                     
                   </button>
+                  <button
+                    onclick=\"room_images($row[id],'$row[name]')\"
+                    class='btn btn-info btn-sm shadow-none'
+                    type='button'
+                    data-bs-toggle = 'modal'
+                    data-bs-target = '#room-images'
+                  >
+                    <i class='bi bi-images'></i>
+                    
+                  </button>
                 </td>
               </tr>           
             ";
@@ -171,7 +181,7 @@
       else{
         echo 0;
       }
-  }
+    }
 
 
 
@@ -196,5 +206,27 @@
         echo $res;
     }
 
+
+    // Images
+
+    if (isset($_POST["add_image"])) {
+      $frm_data = filteration($_POST);
+      $img_r =uploadImage($_FILES['image'],ROOMS_FOLDER);
+      if ($img_r == "inv_img") {
+          echo $img_r;
+      }
+      elseif($img_r == "inv_size"){
+          echo $img_r;
+      }
+      elseif($img_r == "upd_failed"){
+          echo $img_r;
+      }
+      else{
+          $q = "INSERT INTO `room_images`(`room_id`, `image`) VALUES (?,?)";
+          $values = [$frm_data["room_id"],$img_r];
+          $res = insert($q,$values,"is");
+          echo $res;
+      }
+    }
 
 ?>
