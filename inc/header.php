@@ -135,7 +135,7 @@
 >
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="">
+      <form action="" id="register-form">
         <div class="modal-header">
           <h1 class="modal-title fs-5 d-flex align-items-center">
             <i class="bi bi-person-lines-fill fs-3 me-2"> User Registration </i>
@@ -160,6 +160,8 @@
                   type="text"
                   class="form-control shadow-none"
                   id="InputEmail"
+                  name="name"
+                  required
                 />
               </div>
               <div class="col-md-6 p-0 mb-3">
@@ -168,6 +170,8 @@
                   type="email"
                   class="form-control shadow-none"
                   id="InputEmail"
+                  name="email"
+                  required
                 />
               </div>
               <div class="col-md-6 ps-0 mb-3">
@@ -176,6 +180,8 @@
                   type="number"
                   class="form-control shadow-none"
                   id="InputPhone"
+                  name="phonenum"
+                  required
                 />
               </div>
               <div class="col-md-6 p-0 mb-3">
@@ -184,6 +190,9 @@
                   type="file"
                   class="form-control shadow-none"
                   id="InputPhoto"
+                  name="profile"
+                  accept=".jpg,.jpeg,.png,.webp"
+                  required
                 />
               </div>
               <div class="col-md-12 p-0 mb-3">
@@ -192,6 +201,8 @@
                   class="form-control shadow-none"
                   id="InputAddress"
                   rows="1"
+                  name="address"
+                  required
                 ></textarea>
               </div>
               <div class="col-md-6 ps-0 mb-3">
@@ -200,7 +211,9 @@
                   type="number"
                   class="form-control shadow-none"
                   id="InputPincode"
-                />
+                  name="pincode"
+                  required
+                  />
               </div>
               <div class="col-md-6 p-0 mb-3">
                 <label for="InputDOB" class="form-label">Date of Birth</label>
@@ -208,6 +221,8 @@
                   type="date"
                   class="form-control shadow-none"
                   id="InputDOB"
+                  name="dob"
+                  required
                 />
               </div>
               <div class="col-md-6 ps-0 mb-3">
@@ -216,6 +231,8 @@
                   type="password"
                   class="form-control shadow-none"
                   id="InputPassword"
+                  name="pass"
+                  required
                 />
               </div>
               <div class="col-md-6 p-0 mb-3">
@@ -226,6 +243,8 @@
                   type="password"
                   class="form-control shadow-none"
                   id="InputConformPassword"
+                  name="cpass"
+                  required
                 />
               </div>
             </div>
