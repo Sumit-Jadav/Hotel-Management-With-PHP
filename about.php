@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TJ Hotel-About</title>
-
     <!-- ! Slider js cdn -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
     <?php require("inc/links.php");?>
+    <title><?php echo $settings_r["site_title"]?>-About</title>
+
     <style type="text/css">
       .box:hover {
         background-color: #fff;
