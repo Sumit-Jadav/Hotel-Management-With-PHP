@@ -15,6 +15,13 @@
     define("FACILITIES_FOLDER","facilities/");
     define("ROOMS_FOLDER","rooms/");
     define("USERS_FOLDER","users/");
+
+    // For SMTP mail server
+    define("FROM_MAIL","demoemail478@gmail.com");
+    define("APP_PASSWORD","eioydxxpewqqauko");
+    define("MAILER_NAME","TJ HOTEL");
+    
+
     function alert($type,$message){
         $bs_class = ($type == "success")?"alert-success":"alert-danger";
         echo <<<alert
