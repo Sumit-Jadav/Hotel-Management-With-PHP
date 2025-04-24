@@ -1,11 +1,4 @@
-<?php
-  require("admin/inc/db_config.php");
-  require("admin/inc/essentials.php");
 
-  $contact_q = "SELECT * FROM `contact_details` WHERE `sr_no` = ?";
-  $values = [1];
-  $contact_r = mysqli_fetch_assoc(select($contact_q,$values,"i"));
-?>
  
 
 <nav
@@ -13,7 +6,7 @@
 >
   <div class="container-fluid">
     <a class="navbar-brand me-5 fw-bold fs-3 h-font" href="index.php"
-      >TJ Hotel</a
+      ><?php echo $settings_r["site_title"]?></a
     >
     <button
       class="navbar-toggler"
