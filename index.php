@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TJ Hotel</title>
-    
     <!-- ! Slider js cdn -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
    <?php require("inc/links.php");?>
+    <title><?php echo $settings_r["site_title"]?>-Home</title>
+    
   </head>
   <body class="bg-light">
     <!-- ! Header Section -->
