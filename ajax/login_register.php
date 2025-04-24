@@ -18,13 +18,13 @@ try {
     $mail->isSMTP();                                           
     $mail->Host       = 'smtp.gmail.com';                    
     $mail->SMTPAuth   = true;                                  
-    $mail->Username   = 'demoemail478@gmail.com';                    
-    $mail->Password   = 'eioydxxpewqqauko';
+    $mail->Username   = FROM_MAIL;                    
+    $mail->Password   = APP_PASSWORD;
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
     $mail->Port       = 465;                                    
 
     
-    $mail->setFrom('demoemail478@gmail.com', 'TJ HOTEL');
+    $mail->setFrom(FROM_MAIL, MAILER_NAME);
     $mail->addAddress($email,$name);       
 
     
