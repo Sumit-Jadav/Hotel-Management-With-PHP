@@ -35,4 +35,15 @@
   $contact_r = mysqli_fetch_assoc(select($contact_q,$values,"i"));
   $settings_q = "SELECT * FROM `settings` WHERE `sr_no` = ?";
   $settings_r = mysqli_fetch_assoc(select($settings_q,$values,"i"));
+
+  if ($settings_r["shutdown"]) {
+    echo <<< alertbar
+      <div class="bg-danger text-center bw-bold p-2">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        Bookings are temporarily closed!!!!
+      </div>
+    alertbar;
+  }
+
+
 ?>
