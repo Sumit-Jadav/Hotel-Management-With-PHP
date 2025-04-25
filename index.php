@@ -427,18 +427,141 @@
           </div>
         </div>
       </section>
+        
+      <!-- Password Reset Modal -->
+      <section>
+                
+        
+        <div
+          class="modal fade"
+          id="recoveryModal"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form action="" id="recovery-form">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5 d-flex align-items-center">
+                    <i class="bi bi-shield-lock fs-3 me-2"></i>Set New Password
+                  </h1>
+                  <button
+                    type="reset"
+                    class="btn-close shadow-none"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                
+                  <div class="mb-3">
+                    <label for="newPass" class="form-label">New Password</label>
+                    <input
+                      type="password"
+                      class="form-control shadow-none"
+                      id="newPass"
+                      name="newPass"
+                      required
+                    />
+                    <input type="hidden" name="email">
+                    <input type="hidden" name="token">
+                  </div>
+                  <div class="text-end mb-2">
+                    <button
+                          type="button"
+                          class="btn shadow-none   me-2"
+                          data-bs-dismiss="modal"
+                    >
+                      Cancle
+                    </button>
+                    <button type="submit" class="btn btn-dark shadow-none">
+                      SUBMIT
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+
+
     </main>
 
     <footer>
       <?php require("inc/footer.php");?>
     </footer>
-    <!-- ! Bootstrap javascript -->
+    <!-- ! Bootstrap javascript in footer file-->
     
+    <!-- For reset password  -->
+    <?php
+      if (isset($_GET["account_recovery"])) {
+        $data = filteration($_GET);
+        $t_data = date("Y-m-d");
+        $query = select("SELECT * FROM `user_cred` WHERE `email`=? AND `token`=? AND `t_expire`=? LIMIT 1",[$data["email"],$data["token"],$t_data],"sss");
+          // print_r (mysqli_fetch_assoc($query));
+        if (mysqli_num_rows($query) == 1) {
+          echo <<< showModal
+            <script>
+              let myModal = document.getElementById("recoveryModal");
+              myModal.querySelector("input[name='email']").value = '$data[email]';
+              myModal.querySelector("input[name='token']").value = '$data[token]';
+              let modal = bootstrap.Modal.getOrCreateInstance(myModal);
+              modal.show();
+            </script>
+          showModal;
+        }
+        else{
+          alert("danger","Invalid Link!!");
+        }
+      }
+    
+    
+    ?>
+    
+
     <!-- ! Slider js Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- ! Swiper.js link -->
     <script src="./js/swiper.js"></script>
     <!-- ! Testimonial Swiper -->
     <script src="./js/swiper-testimonial.js"></script>
+    <script>
+      // Recover Account
+        let recovery_form = document.getElementById("recovery-form");
+        recovery_form.addEventListener("submit",(e) => {
+        e.preventDefault();
+        let data = new FormData();
+        data.append("email",recovery_form.elements["email"].value);
+        data.append("token",recovery_form.elements["token"].value);
+        data.append("pass",recovery_form.elements["newPass"].value);
+        data.append("recover_user","");
+        let myModal = document.getElementById("recoveryModal");
+        let modal = bootstrap.Modal.getInstance(myModal);
+        modal.hide();
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "ajax/login_register.php", true);
+        
+        xhr.onload = function () {
+          console.log(this.responseText);
+          
+          if (this.responseText == "failed") {
+            alert("danger","Password reset failed!!");
+          }else {
+            alert("success","Password successfully changed");
+            forgot_form.reset();
+          }
+        };
+        xhr.send(data);
+      })
+
+
+    </script>
   </body>
 </html>
