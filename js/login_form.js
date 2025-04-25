@@ -24,7 +24,12 @@ login_form.addEventListener("submit", (e) => {
     } else if (this.responseText == "invalid_pass") {
       alert("danger", "Invalid Password!!");
     } else {
-      window.location = window.location.pathname;
+      let fileurl = window.location.href.split("/").pop().split("?").shift();
+      if (fileurl == "room_details.php") {
+        window.location = window.location.href;
+      } else {
+        window.location = window.location.pathname;
+      }
     }
   };
   xhr.send(data);
