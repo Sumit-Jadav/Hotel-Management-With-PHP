@@ -147,6 +147,11 @@
                   $room_thumb = ROOMS_IMG_PATH.$thumb_res['image'];
                 }
 
+                $book_btn = "";
+                  if (!$settings_r["shutdown"]) {
+                    $book_btn = "<a href='#' class='btn btn-sm text-white custome-button shadow-none mb-2 w-100'>Book Now</a>";
+                  }
+
                 // Echo card
 
                 echo <<< data
@@ -183,11 +188,7 @@
                           class="col-md-2 mt-lg-0 mt-md-0 mt-4 align-items-center text-center"
                         >
                           <h6 class="mb-4">&#8377;$room_data[price] per night</h6>
-                          <a
-                            href="#"
-                            class="btn btn-sm text-white custome-button shadow-none mb-2 w-100"
-                            >Book Now</a
-                          >
+                          $book_btn
                           <a
                             href="room_details.php?id=$room_data[id]"
                             class="btn btn-sm w-100 btn-outline-dark shadow-none"
