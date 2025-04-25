@@ -161,14 +161,16 @@
                         
                       </div>
                   area;
-
-                  echo <<< book
-                    <a
-                      href="#"
-                      class="btn  text-white custome-button shadow-none mb-2 w-100"
-                      >Book Now</a
-                    >
-                  book;
+                  
+                  if (!$settings_r["shutdown"]) {
+                    echo <<< book
+                      <a
+                        href="#"
+                        class="btn  text-white custome-button shadow-none mb-2 w-100"
+                        >Book Now</a
+                      >
+                    book;
+                  }
                 ?>
               </div>
           </div>
