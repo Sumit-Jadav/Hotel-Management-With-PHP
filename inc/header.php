@@ -38,22 +38,49 @@
         </li>
       </ul>
       <div class="d-flex" role="search">
-        <button
-          type="button"
-          class="btn btn-outline-dark shadow-none me-lg-3 me-2"
-          data-bs-toggle="modal"
-          data-bs-target="#loginModal"
-        >
-          Login
-        </button>
-        <button
-          type="button"
-          class="btn btn-outline-dark shadow-none me-lg-2 me-3"
-          data-bs-toggle="modal"
-          data-bs-target="#registerModal"
-        >
-          Register
-        </button>
+
+        <?php
+          if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+            $path = USERS_IMG_PATH.$_SESSION["uPic"];
+            echo <<< data
+              <div class="btn-group">
+                <button type="button" class="btn btn-secondary btn-outline-dark shadow-none dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                  <img src="$path" style="width:25px;height:25px" class="me-1">
+                  $_SESSION[uName]
+                </button>
+                <ul class="dropdown-menu dropdown-menu-lg-end">
+                  <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                  <li><a class="dropdown-item" href="bookings.php">Another action</a></li>
+                  <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                </ul>
+              </div>
+
+            data;
+            
+          }
+          else{
+            echo '
+                  <button
+                  type="button"
+                  class="btn btn-outline-dark shadow-none me-lg-3 me-2"
+                  data-bs-toggle = "modal"
+                  data-bs-target = "#loginModal"
+                >
+                  Login
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-dark shadow-none me-lg-2 me-3"
+                  data-bs-toggle="modal"
+                  data-bs-target="#registerModal"
+                >
+                  Register
+                </button>
+            ';
+          }
+        ?>
+
+       
       </div>
     </div>
   </div>
@@ -70,7 +97,7 @@
 >
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="">
+      <form action="" id="login-form">
         <div class="modal-header">
           <h1 class="modal-title fs-5 d-flex align-items-center">
             <i class="bi bi-person-circle fs-3 me-2"></i>User Login
@@ -84,11 +111,13 @@
         </div>
         <div class="modal-body">
           <div class="mb-3">
-            <label for="InputEmail" class="form-label">Email address</label>
+            <label for="InputEmail" class="form-label">Email/Mobile</label>
             <input
-              type="email"
+              type="text"
               class="form-control shadow-none"
               id="InputEmail"
+              name="email_mob"
+              required
             />
           </div>
           <div class="mb-3">
@@ -97,6 +126,7 @@
               type="password"
               class="form-control shadow-none"
               id="InputPassword"
+              name="pass"
             />
           </div>
           <div class="d-flex align-items-center justify-content-between mb-2">
