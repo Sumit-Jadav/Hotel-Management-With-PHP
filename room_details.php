@@ -163,11 +163,15 @@
                   area;
                   
                   if (!$settings_r["shutdown"]) {
+                    $login = 0;
+                    if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+                      $login = 1;
+                    }
                     echo <<< book
-                      <a
-                        href="#"
+                      <button
+                        onclick='checkLoginToBook($login,$room_data[id])'
                         class="btn  text-white custome-button shadow-none mb-2 w-100"
-                        >Book Now</a
+                        >Book Now</button
                       >
                     book;
                   }
