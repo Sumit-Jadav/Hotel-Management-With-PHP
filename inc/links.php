@@ -26,6 +26,7 @@
 <?php
   require("admin/inc/db_config.php");
   require("admin/inc/essentials.php");
+  date_default_timezone_set("Asia/Kolkata");
 
   session_start();
 
