@@ -158,6 +158,16 @@
                     $thumb_res = mysqli_fetch_assoc($thumb_q);
                     $room_thumb = ROOMS_IMG_PATH.$thumb_res['image'];
                   }
+                  
+                  $book_btn = "";
+                  if (!$settings_r["shutdown"]) {
+                    $book_btn = "<a
+                              href='#'
+                              class='btn btn-sm text-white custome-button shadow-none'
+                              >Book Now</a
+                            >";
+                  }
+
 
                   // Echo card
 
@@ -207,11 +217,7 @@
                             </span>
                           </div>
                           <div class="d-flex justify-content-evenly mb-2">
-                            <a
-                              href="#"
-                              class="btn btn-sm text-white custome-button shadow-none"
-                              >Book Now</a
-                            >
+                            $book_btn
                             <a href="room_details.php?id=$room_data[id]" class="btn btn-sm btn-outline-dark shadow-none"
                               >More Details</a
                             >
@@ -531,37 +537,6 @@
     <script src="./js/swiper.js"></script>
     <!-- ! Testimonial Swiper -->
     <script src="./js/swiper-testimonial.js"></script>
-    <script>
-      // Recover Account
-        let recovery_form = document.getElementById("recovery-form");
-        recovery_form.addEventListener("submit",(e) => {
-        e.preventDefault();
-        let data = new FormData();
-        data.append("email",recovery_form.elements["email"].value);
-        data.append("token",recovery_form.elements["token"].value);
-        data.append("pass",recovery_form.elements["newPass"].value);
-        data.append("recover_user","");
-        let myModal = document.getElementById("recoveryModal");
-        let modal = bootstrap.Modal.getInstance(myModal);
-        modal.hide();
-
-        let xhr = new XMLHttpRequest();
-        xhr.open("POST", "ajax/login_register.php", true);
-        
-        xhr.onload = function () {
-          console.log(this.responseText);
-          
-          if (this.responseText == "failed") {
-            alert("danger","Password reset failed!!");
-          }else {
-            alert("success","Password successfully changed");
-            forgot_form.reset();
-          }
-        };
-        xhr.send(data);
-      })
-
-
-    </script>
+    <script src="js/recovery_form.js"></script>
   </body>
 </html>
