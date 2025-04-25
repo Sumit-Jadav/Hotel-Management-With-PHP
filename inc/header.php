@@ -133,11 +133,16 @@
             <button type="submit" class="btn btn-dark shadow-none">
               LOGIN
             </button>
-            <a
-              href="javascript : void(0)"
-              class="text-secondary text-decoration-none"
-              >Forgot Password</a
+            <button
+              type="button"
+              class="btn text-secondary text-decoration-none shadow-none  p-0"
+              data-bs-toggle="modal"
+              data-bs-target="#forgotModal"
+              data-bs-dismiss="modal"
             >
+              Forgot Passport
+            </button>
+            
           </div>
         </div>
       </form>
@@ -275,6 +280,65 @@
           <div class="text-center">
             <button type="submit" class="btn btn-dark shadow-none my-1">
               Register
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Forgot Modal -->
+<div
+  class="modal fade"
+  id="forgotModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form action="" id="forgot-form">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 d-flex align-items-center">
+            <i class="bi bi-person-circle fs-3 me-2"></i>Forgot Password
+          </h1>
+          <button
+            type="reset"
+            class="btn-close shadow-none"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+        <span class="badge text-bg-light mb-3 text-wrap lh-base"
+            >Note: A link will be send to your email to reset your password.
+          </span>
+          <div class="mb-3">
+            <label for="forgotEmail" class="form-label">Email</label>
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="forgotEmail"
+              name="email"
+              required
+            />
+          </div>
+          <div class="text-end mb-2">
+            <button
+                  type="button"
+                  class="btn shadow-none  p-0 me-2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#loginModal"
+                  data-bs-dismiss="modal"
+            >
+              Cancle
+            </button>
+            <button type="submit" class="btn btn-dark shadow-none">
+              SEND LINK
             </button>
           </div>
         </div>
