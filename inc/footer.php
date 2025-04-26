@@ -88,6 +88,16 @@
     setTimeout(remAlert,5000);
   }
 
+  function checkLoginToBook(status,room_id) {
+    if (status) {
+      window.location.href="confirm_booking.php?id="+room_id;
+    }
+    else{
+      alert("danger","Please login to book room");
+    }
+  }
+
+
   function remAlert() {
     document.getElementsByClassName("alert")[0].remove();
   }
