@@ -19,7 +19,7 @@
     <div class="container-fluid" id="main-content">
       <div class="row">
         <div class="col-lg-10 ms-auto p-4 overflow-hidden">
-          <h3 class="mb-4">USERS</h3>
+          <h3 class="mb-4">NEW BOOKINGS</h3>
 
           <!-- Feature Card -->
           <div class="card border-0 shadow mb-4">
