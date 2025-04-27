@@ -1,1 +1,3 @@
 PHPMailer/
+vendor/
+config.php
