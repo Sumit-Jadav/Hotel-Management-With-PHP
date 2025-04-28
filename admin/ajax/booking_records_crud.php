@@ -10,7 +10,7 @@
         $page = $frm_data["page"];
         $start = ($page-1) * $limit;
 
-        $query = "SELECT bo.*,bd.* FROM `booking_order` bo INNER JOIN `booking_details` bd ON bo.booking_id = bd.booking_id WHERE ( (bo.booking_status  = 'booked' AND bo.arrival = 1) OR (bo.booking_status = 'canclled' AND bo.refund = 1) OR (bo.booking_status = 'payment failed')) AND (bo.order_id LIKE ? OR bd.phonenum LIKE ? OR bd.user_name LIKE ? ) ORDER BY bo.booking_id DESC";
+        $query = "SELECT bo.*,bd.* FROM `booking_order` bo INNER JOIN `booking_details` bd ON bo.booking_id = bd.booking_id WHERE ( (bo.booking_status  = 'booked' AND bo.arrival = 1) OR (bo.booking_status = 'cancelled' AND bo.refund = 1) OR (bo.booking_status = 'payment failed')) AND (bo.order_id LIKE ? OR bd.phonenum LIKE ? OR bd.user_name LIKE ? ) ORDER BY bo.booking_id DESC";
         $res = select($query,["%$frm_data[search]%","%$frm_data[search]%","%$frm_data[search]%"],"sss");
 
         $limit_query = "$query LIMIT $start,$limit";
@@ -33,7 +33,7 @@
           if ($data["booking_status"] == "booked") {
             $status_bg = "bg-success";
           }
-          else if($data["booking_status"] == "canclled"){
+          else if($data["booking_status"] == "cancelled"){
             $status_bg = "bg-danger";
           }
           else{
@@ -104,7 +104,7 @@
         $frm_data = filteration($_POST);
         
         $q = "UPDATE `booking_order`  SET `booking_status` = ? , `refund`= ? WHERE booking_id = ?";
-        $values= ["canclled",0,$frm_data["booking_id"]];
+        $values= ["cancelled",0,$frm_data["booking_id"]];
         $res = update($q,$values,"sii");
         echo $res;
         
