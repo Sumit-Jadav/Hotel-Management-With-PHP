@@ -6,7 +6,7 @@
 
     if (isset($_GET["gen_pdf"]) && isset($_GET["id"])) {
         $frm_data = filteration($_GET);
-        $query = "SELECT bo.*,bd.*,uc.email FROM `booking_order` bo INNER JOIN `booking_details` bd ON bo.booking_id = bd.booking_id INNER JOIN `user_cred` uc ON bo.user_id = uc.id WHERE ( (bo.booking_status  = 'booked' AND bo.arrival = 1) OR (bo.booking_status = 'canclled' AND bo.refund = 1) OR (bo.booking_status = 'payment failed')) AND bo.booking_id = '$frm_data[id]'";
+        $query = "SELECT bo.*,bd.*,uc.email FROM `booking_order` bo INNER JOIN `booking_details` bd ON bo.booking_id = bd.booking_id INNER JOIN `user_cred` uc ON bo.user_id = uc.id WHERE ( (bo.booking_status  = 'booked' AND bo.arrival = 1) OR (bo.booking_status = 'cancelled' AND bo.refund = 1) OR (bo.booking_status = 'payment failed')) AND bo.booking_id = '$frm_data[id]'";
         $res = mysqli_query($con ,  $query);
         $total_rows = mysqli_num_rows($res);
         if ($total_rows == 0) {
@@ -79,7 +79,7 @@
                     <td>Check-Out :$checkout</td>
                 </tr>
         ";
-        if ($data['booking_status'] == "canclled") {
+        if ($data['booking_status'] == "cancelled") {
             $refund = ($data["refund"]) ? "Amount Refunded" : "Not Yet Refunded";
             $table_data .= "
                 <tr>
