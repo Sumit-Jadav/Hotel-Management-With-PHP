@@ -32,8 +32,8 @@ registe_form.addEventListener("submit", (e) => {
       alert("danger", "Upload Failed");
     } else if (this.responseText == "mail_failed") {
       alert("danger", "Cannot send varification mail!! Server Dpwn!!!");
-    } else if (this.responseText == "inv_failed") {
-      alert("danger", "Phone Already Registered!!");
+    } else if (this.responseText == "ins_failed") {
+      alert("danger", "Registration Failed!!");
     } else {
       alert(
         "success",
