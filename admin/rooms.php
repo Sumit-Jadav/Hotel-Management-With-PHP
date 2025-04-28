@@ -246,7 +246,7 @@
                 class="btn text-secondary shadow-none"
                 data-bs-dismiss="modal"
               >
-                Cancle
+                Cancel
               </button>
               <button
                 type="submit"
@@ -393,7 +393,7 @@
                         class="btn text-secondary shadow-none"
                         data-bs-dismiss="modal"
                         >
-                        Cancle
+                        Cancel
                         </button>
                         <button
                         type="submit"
