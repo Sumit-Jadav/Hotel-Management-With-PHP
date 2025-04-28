@@ -105,4 +105,4 @@
 </script>
 <script src="./js/user_registration.js"></script>
 <script src="./js/login_form.js"></script>
-<script src="/js/forgot_form.js"></script>
+<script src="./js/forgot_form.js"></script>
