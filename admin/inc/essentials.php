@@ -19,7 +19,7 @@
 
     // For SMTP mail server
     define("FROM_MAIL","demoemail478@gmail.com");
-    define("APP_PASSWORD","eioydxxpewqqauko");
+    define("APP_PASSWORD","vnkmaygrcfkkvvjg");
     define("MAILER_NAME","TJ HOTEL");
     
 
