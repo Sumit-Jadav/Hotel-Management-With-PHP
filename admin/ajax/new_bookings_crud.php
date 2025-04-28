@@ -43,7 +43,7 @@
                 </button>
                 <br>
                 <button type='button' onclick='cancle_booking($data[booking_id])' class='btn btn-sm btn-outline-danger fw-bold mt-2 shadow-none ' >
-                  <i class = 'bi bi-trash'></i>Cancle Booking
+                  <i class = 'bi bi-trash'></i>Cancel Booking
                 </button>
               </td>
             </tr>
@@ -65,7 +65,7 @@
         $frm_data = filteration($_POST);
         
         $q = "UPDATE `booking_order`  SET `booking_status` = ? , `refund`= ? WHERE booking_id = ?";
-        $values= ["canclled",0,$frm_data["booking_id"]];
+        $values= ["cancelled",0,$frm_data["booking_id"]];
         $res = update($q,$values,"sii");
         echo $res;
         
