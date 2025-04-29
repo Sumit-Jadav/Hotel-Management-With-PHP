@@ -48,10 +48,13 @@
                 $btn = "<a href='generate_pdf.php?gen_pdf&id=$data[booking_id]' class='btn btn-sm btn-dark   shadow-none ' >
                     Download PDF
                   </a>
-                  <button type='button' class='btn btn-sm btn-dark fw-bold  shadow-none ' >
-                    Rate And Review
-                  </button>
+                  
                   ";
+                  if ($data["rate_review"] == 0) {
+                    $btn .=  "<button type='button' onclick='review_room($data[booking_id],$data[room_id])' class='btn btn-sm btn-dark  fw-bold  shadow-none ms-2' data-bs-toggle='modal' data-bs-target='#reviewModal' >
+                      Rate And Review
+                    </button>";  
+                  }
               }else{
                 $btn = "<button onclick='cancel_booking($data[booking_id])' type='button' class='btn btn-sm btn-danger fw-bold  shadow-none ' >
                     Cancel
@@ -111,9 +114,75 @@
       if (isset($_GET["cancel_status"])) {
         alert("success","Booking Cancelled!!");
       }
-          
-    
+      else if(isset($_GET["review_status"])) {
+        alert("success","Thank you for rating!!");
+      }
     ?>
+
+
+      <!-- Review Modal -->
+<div
+  class="modal fade"
+  id="reviewModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form action="" id="review-form">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 d-flex align-items-center">
+            <i class="bi bi-chat-square-heart-fill fs-3 me-2"></i>Rate & Review
+          </h1>
+          <button
+            type="reset"
+            class="btn-close shadow-none"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="InputRating" class="form-label">Rating</label>
+            <select class="form-select shadow-nonde" name="rating" id="InputRating">
+              <option value="5">Excellent</option>
+              <option value="4">Good</option>
+              <option value="3">Ok</option>
+              <option value="2">Poor</option>
+              <option value="1">Bad</option>
+
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="InputReview" class="form-label">Review</label>
+            <textarea
+              class="form-control shadow-none"
+              id="InputReview"
+              rows="3"
+              name="review"
+              required
+            ></textarea>
+          </div>
+          <input type="hidden" name="booking_id">
+          <input type="hidden" name="room_id">
+          <div class="text-end">
+            <button type="submit" class="btn custome-button text-white btn-dark shadow-none">
+              SUBMIT
+            </button>
+           
+            
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
     <footer>
       <?php require("inc/footer.php");?>
     </footer>
