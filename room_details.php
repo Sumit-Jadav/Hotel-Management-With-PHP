@@ -93,14 +93,30 @@
                   echo <<< price
                     <h4 >&#8377;$room_data[price] per night</h4>
                   price;
+
+
+                  $rating_q = "SELECT AVG(rating) AS `avg_rating` FROM `rating_review` WHERE `room_id` = $room_data[id]  ORDER BY `sr_no` DESC LIMIT 20";
+
+                  $rating_res = mysqli_query($con,$rating_q);
+                  $rating_fetch =  mysqli_fetch_assoc($rating_res);
+                  $rating_data ="";
+                  if ($rating_fetch["avg_rating"] != NULL) {
+                    
+                    for ($i=0; $i < $rating_fetch["avg_rating"] ; $i++) { 
+                             
+                      $rating_data .= " <i class='bi bi-star-fill text-warning'></i>";
+                    }
+                   
+                  }
+
+
+
+
                   echo <<< rating
                     <div class="rating mb-3">
                     <h6 class="mb-1">Ratings</h6>
                     <span class="badge rounded-pill bg-light">
-                      <i class="bi bi-star-fill text-warning"></i>
-                      <i class="bi bi-star-fill text-warning"></i>
-                      <i class="bi bi-star-fill text-warning"></i>
-                      <i class="bi bi-star-fill text-warning"></i>
+                      $rating_data
                     </span>
                   </div>
                   rating;
@@ -190,27 +206,49 @@
             </div>
             <di>
               <h5 class="mb-3">Reviews and Ratings</h5>
-              <div>
-              <div class="profile d-flex align-items-center mb-3">
-                  <img
-                    src="./images/facilities/IMG_27079.svg"
-                    alt=""
-                    style="width: 30px"
-                  />
-                  <h6 class="m-0 ms-2">Randome User1</h6>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et,
-                  beatae?Lorem ipsum, dolor sit amet consectetur adipisicing
-                  elit. Esse, ut.
-                </p>
-                <div class="rating">
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                </div>
-              </div>
+
+              <?php
+                $review_q ="SELECT rr.* , uc.name AS uname, r.name AS rname , uc.profile  FROM `rating_review` rr INNER JOIN `user_cred` uc ON rr.user_id = uc.id INNER JOIN `rooms` r ON rr.room_id = r.id  WHERE rr.room_id = $room_data[id]  ORDER BY `sr_no` DESC LIMIT 15";
+                
+                $review_res = mysqli_query($con,$review_q);
+                $img_path = USERS_IMG_PATH;
+                if (mysqli_num_rows($review_res) == 0) {
+                  echo "No reviews yet!";
+                }else{
+                  while ($row = mysqli_fetch_assoc($review_res)) {
+                 
+                    $star = "<i class='bi bi-star-fill text-warning'></i>";
+                    for($i = 1 ; $i<$row["rating"] ; $i++){
+                      $star .= " <i class='bi bi-star-fill text-warning'></i> ";
+                    }
+
+                    echo <<< rating
+                      <div class="mb-4">
+                        <div class="profile d-flex align-items-center mb-3">
+                            <img
+                              src="$img_path$row[profile]"
+                              alt=""
+                              style="width: 30px"
+                              loading = "lazy"
+                              class="rounded-circle"
+                            />
+                            <h6 class="m-0 ms-2">$row[uname]</h6>
+                          </div>
+                          <p>
+                           $row[review]
+                          </p>
+                          <div class="rating">
+                            $star 
+                          </div>
+                        </div>
+
+                    rating;
+
+
+                  }
+                }
+              ?>
+
             </div>
           </div>
         </div>
