@@ -168,7 +168,24 @@
                     $book_btn = "<button onclick='checkLoginToBook($login,$room_data[id])' class='btn btn-sm text-white custome-button shadow-none'>Book Now</button>";
                   }
 
+                  $rating_q = "SELECT AVG(rating) AS `avg_rating` FROM `rating_review` WHERE `room_id` = $room_data[id]  ORDER BY `sr_no` DESC LIMIT 20";
 
+                  $rating_res = mysqli_query($con,$rating_q);
+                  $rating_fetch =  mysqli_fetch_assoc($rating_res);
+                  $rating_data ="";
+                  if ($rating_fetch["avg_rating"] != NULL) {
+                    $rating_data .= "<div class='rating mb-4'>
+                            <h6 class='mb-1'>Ratings</h6>
+                            <span class='badge rounded-pill bg-light'>";
+                    for ($i=0; $i < $rating_fetch["avg_rating"] ; $i++) { 
+                             
+                      $rating_data .= " <i class='bi bi-star-fill text-warning'></i>";
+                    }
+                    $rating_data .= "</span>
+                          </div>";
+                  }
+
+                    
                   // Echo card
 
                   echo <<< data
@@ -207,15 +224,7 @@
                             </span>
                             
                           </div>
-                          <div class="rating mb-4">
-                            <h6 class="mb-1">Ratings</h6>
-                            <span class="badge rounded-pill bg-light">
-                              <i class="bi bi-star-fill text-warning"></i>
-                              <i class="bi bi-star-fill text-warning"></i>
-                              <i class="bi bi-star-fill text-warning"></i>
-                              <i class="bi bi-star-fill text-warning"></i>
-                            </span>
-                          </div>
+                          $rating_data
                           <div class="d-flex justify-content-evenly mb-2">
                             $book_btn
                             <a href="room_details.php?id=$room_data[id]" class="btn btn-sm btn-outline-dark shadow-none"
@@ -288,69 +297,49 @@
         <div class="container">
           <div class="swiper swiper-testimonial">
             <div class="swiper-wrapper mb-5">
-              <div class="swiper-slide bg-white p-4" style="display: block">
-                <div class="profile d-flex align-items-center mb-3">
-                  <img
-                    src="./images/facilities/IMG_27079.svg"
-                    alt=""
-                    style="width: 30px"
-                  />
-                  <h6 class="m-0 ms-2">Randome User1</h6>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et,
-                  beatae?Lorem ipsum, dolor sit amet consectetur adipisicing
-                  elit. Esse, ut.
-                </p>
-                <div class="rating">
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                </div>
-              </div>
-              <div class="swiper-slide bg-white p-4" style="display: block">
-                <div class="profile d-flex align-items-center mb-3">
-                  <img
-                    src="./images/facilities/IMG_27079.svg"
-                    alt=""
-                    style="width: 30px"
-                  />
-                  <h6 class="m-0 ms-2">Randome User1</h6>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et,
-                  beatae?Lorem ipsum, dolor sit amet consectetur adipisicing
-                  elit. Esse, ut.
-                </p>
-                <div class="rating">
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                </div>
-              </div>
-              <div class="swiper-slide bg-white p-4" style="display: block">
-                <div class="profile d-flex align-items-center mb-3">
-                  <img
-                    src="./images/facilities/IMG_27079.svg"
-                    alt=""
-                    style="width: 30px"
-                  />
-                  <h6 class="m-0 ms-2">Randome User1</h6>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et,
-                  beatae?Lorem ipsum, dolor sit amet consectetur adipisicing
-                  elit. Esse, ut.
-                </p>
-                <div class="rating">
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                  <i class="bi bi-star-fill text-warning"></i>
-                </div>
-              </div>
+              <?php
+                $review_q ="SELECT rr.* , uc.name AS uname, r.name AS rname , uc.profile  FROM `rating_review` rr INNER JOIN `user_cred` uc ON rr.user_id = uc.id INNER JOIN `rooms` r ON rr.room_id = r.id ORDER BY `sr_no` DESC LIMIT 5";
+                
+                $review_res = mysqli_query($con,$review_q);
+                $img_path = USERS_IMG_PATH;
+                if (mysqli_num_rows($review_res) == 0) {
+                  echo "No reviews yet!";
+                }else{
+                  while ($row = mysqli_fetch_assoc($review_res)) {
+                 
+                    $star = "<i class='bi bi-star-fill text-warning'></i>";
+                    for($i = 1 ; $i<$row["rating"] ; $i++){
+                      $star .= " <i class='bi bi-star-fill text-warning'></i> ";
+                    }
+
+                    echo <<< slides
+                        <div class="swiper-slide bg-white p-4" style="display: block">
+                            <div class="profile d-flex align-items-center mb-3">
+                              <img
+                                src="$img_path$row[profile]"
+                                alt=""
+                                style="width: 30px"
+                                loading="lazy"
+                                class="rounded-circle"
+                              />
+                              <h6 class="m-0 ms-2">$row[uname]</h6>
+                            </div>
+                            <p>
+                              $row[review]
+                            </p>
+                            <div class="rating">
+                              $star                              
+                            </div>
+                          </div>
+                    slides;
+
+                  }
+                }
+              
+              
+              
+              ?>
+              
             </div>
             <div class="swiper-pagination"></div>
           </div>
