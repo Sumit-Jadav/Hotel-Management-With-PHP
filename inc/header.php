@@ -182,7 +182,7 @@
           </span>
           <div class="container-fluid">
             <div class="row">
-              <div class="col-md-6 ps-0 mb-3">
+              <div class="col-md-6  mb-3">
                 <label for="InputEmail" class="form-label">Name</label>
                 <input
                   type="text"
@@ -192,7 +192,7 @@
                   required
                 />
               </div>
-              <div class="col-md-6 p-0 mb-3">
+              <div class="col-md-6  mb-3">
                 <label for="InputEmail" class="form-label">Email</label>
                 <input
                   type="email"
@@ -202,7 +202,7 @@
                   required
                 />
               </div>
-              <div class="col-md-6 ps-0 mb-3">
+              <div class="col-md-6  mb-3">
                 <label for="InputPhone" class="form-label">Phone Number</label>
                 <input
                   type="number"
@@ -212,7 +212,7 @@
                   required
                 />
               </div>
-              <div class="col-md-6 p-0 mb-3">
+              <div class="col-md-6  mb-3">
                 <label for="InputPhoto" class="form-label">Photo</label>
                 <input
                   type="file"
@@ -223,7 +223,7 @@
                   required
                 />
               </div>
-              <div class="col-md-12 p-0 mb-3">
+              <div class="col-md-12  mb-3">
                 <label for="InputAddress" class="form-label">Address</label>
                 <textarea
                   class="form-control shadow-none"
@@ -233,7 +233,7 @@
                   required
                 ></textarea>
               </div>
-              <div class="col-md-6 ps-0 mb-3">
+              <div class="col-md-6  mb-3">
                 <label for="InputPincode" class="form-label">Pin Code</label>
                 <input
                   type="number"
@@ -243,7 +243,7 @@
                   required
                   />
               </div>
-              <div class="col-md-6 p-0 mb-3">
+              <div class="col-md-6  mb-3">
                 <label for="InputDOB" class="form-label">Date of Birth</label>
                 <input
                   type="date"
@@ -253,7 +253,7 @@
                   required
                 />
               </div>
-              <div class="col-md-6 ps-0 mb-3">
+              <div class="col-md-6  mb-3">
                 <label for="InputPassword" class="form-label">Password</label>
                 <input
                   type="password"
@@ -263,7 +263,7 @@
                   required
                 />
               </div>
-              <div class="col-md-6 p-0 mb-3">
+              <div class="col-md-6  mb-3">
                 <label for="InputConformPassword" class="form-label"
                   >Conform Password</label
                 >
