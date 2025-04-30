@@ -10,7 +10,22 @@
   <body class="bg-light">
     <!-- ! Header Section -->
     <header>
-      <?php  require("inc/header.php");?>
+      <?php 
+        require("inc/header.php");
+        $checkin_default = "";
+        $checkout_default = "";
+        $adult_default = "";
+        $children_default = "";
+        
+        if (isset($_GET["check_availibility"])) {
+          $frm_data = filteration($_GET);
+          $checkin_default = $frm_data["checkin"];
+          $checkout_default = $frm_data["checkout"];
+          $adult_default = $frm_data["adult"];
+          $children_default = $frm_data["children"];
+            
+        }
+      ?>
     </header>
     <!-- ! Header section end  -->
 
@@ -53,6 +68,7 @@
                       type="date"
                       class="form-control mb-3 shadow-none"
                       id="checkin"
+                      value="<?php echo $checkin_default?>"
                       onchange="chk_avail_filter()"
                       name="checkin"
                     />
@@ -61,6 +77,7 @@
                       type="date"
                       class="form-control shadow-none"
                       id="checkout"
+                      value="<?php echo $checkout_default?>"
                       name="checkout"
                       onchange="chk_avail_filter()"
                     />
@@ -104,11 +121,11 @@
                     <div class="d-flex">
                       <div class="me-3">
                         <label class="form-label">Adults</label>
-                        <input type="number" id="adults" min="1" oninput="gusets_filter()" class="form-control shadow-none" />
+                        <input type="number" id="adults" value="<?php echo $adult_default?>" min="1" oninput="gusets_filter()" class="form-control shadow-none" />
                       </div>
                       <div>
                         <label class="form-label">Childrens</label>
-                        <input type="number" id="children"  min="1" oninput="gusets_filter()" class="form-control shadow-none" />
+                        <input type="number" id="children" value="<?php echo $children_default?>"  min="1" oninput="gusets_filter()" class="form-control shadow-none" />
                       </div>
                     </div>
                   </div>
